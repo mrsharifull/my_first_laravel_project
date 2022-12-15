@@ -176,7 +176,8 @@
             <div class="nav-outer">
               <ul class="nav navbar-nav">
                 <li class="active dropdown yamm-fw"> <a href="{{ asset('home.html')}}" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a> </li>
-                <li class="dropdown yamm mega-menu"> <a href="{{ asset('home.html')}}" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Clothing</a>
+                @foreach($datas as $cat)
+                <li class="dropdown yamm mega-menu"> <a href="{{ asset('home.html')}}" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">{{ $cat->category_name }}</a>
                   <ul class="dropdown-menu container">
                     <li>
                       <div class="yamm-content ">
@@ -244,7 +245,8 @@
                     </li>
                   </ul>
                 </li>
-                <li class="dropdown mega-menu"> 
+                @endforeach
+                {{-- <li class="dropdown mega-menu"> 
                 <a href="{{ asset('category.html')}}"  data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Electronics <span class="menu-label hot-menu hidden-xs">hot</span> </a>
                   <ul class="dropdown-menu container">
                     <li>
@@ -326,7 +328,7 @@
                 <li class="dropdown hidden-sm"> <a href="{{ asset('category.html')}}">Watches</a> </li>
                 <li class="dropdown"> <a href="{{ asset('contact.html')}}">Jewellery</a> </li>
                 <li class="dropdown"> <a href="{{ asset('contact.html')}}">Shoes</a> </li>
-                <li class="dropdown"> <a href="{{ asset('contact.html')}}">Kids & Girls</a> </li>
+                <li class="dropdown"> <a href="{{ asset('contact.html')}}">Kids & Girls</a> </li> --}}
                 <li class="dropdown"> <a href="{{ asset('#')}}" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Pages</a>
                   <ul class="dropdown-menu pages">
                     <li>

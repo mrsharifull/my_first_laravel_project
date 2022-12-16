@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CatController;
+use App\Http\Controllers\SubCatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,4 @@ Route::get('dashboard',[AdminController::class,'admin']);
 Route::get('category',[AdminController::class,'Category']);
 
 Route::resource('category', CatController::class);
+Route::resource('sub_category', SubCatController::class);

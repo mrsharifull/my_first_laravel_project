@@ -242,6 +242,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{{ url('sub_category')}}">
+                <i class="mdi mdi-apps menu-icon"></i>
+                <span class="menu-title">Sub Category</span>
+              </a>
+            </li>
+            <li class="nav-item">
               <a
                 class="nav-link"
                 data-bs-toggle="collapse"

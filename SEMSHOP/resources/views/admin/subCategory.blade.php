@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>Category</title>
+    <title>Sub Category</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('admin/vendors/mdi/css/materialdesignicons.min.css')}}" />
     <link rel="stylesheet" href="{{ asset('admin/vendors/base/vendor.bundle.base.css')}}" />
@@ -239,11 +239,11 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url('sub_category')}}">
-                    <i class="mdi mdi-apps menu-icon"></i>
-                    <span class="menu-title">Sub Category</span>
-                  </a>
-                </li>
+                    <a class="nav-link" href="{{ url('sub_category')}}">
+                      <i class="mdi mdi-apps menu-icon"></i>
+                      <span class="menu-title">Sub Category</span>
+                    </a>
+                  </li>
                 <li class="nav-item">
                   <a
                     class="nav-link"
@@ -281,15 +281,30 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Main Category form</h4>
-                    <form class="forms-sample" method="post" action="{{ url('category') }}">
+                    <form class="forms-sample" method="post" action="{{ url('sub_category') }}">
                     @csrf
-                      <div class="form-group">
+                    <div class="form-group">
                         <label for="exampleInputUsername1">Category Name</label>
+                        <select
+                          class="form-control"
+                          name="catId"
+                          id="exampleInputUsername1"
+                        >
+                        <option selected>Select Category</option>
+                        @if(isset($data))
+                        @foreach($data as $item)
+                        <option value = "{{$item->id}}">{{ $item->category_name }}</option>
+                        @endforeach
+                        @endif
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputUsername2">Sub Category Name</label>
                         <input
                           type="text"
                           class="form-control"
-                          name="catName"
-                          id="exampleInputUsername1"
+                          name="subCatName"
+                          id="exampleInputUsername2"
                           placeholder="Enter Product Category Name"
                         />
                       </div>
@@ -312,14 +327,17 @@
                           <tr>
                             <th>SL</th>
                             <th>Category Name</th>
+                            <th>Sub Category Name</th>
                             <th>Action </th>
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach($data as $item)
+                        @if(isset($subdata))
+                          @foreach($subdata as $item)
                           <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->category_name }}</td>
+                            <td>{{ $item->sub_category_name }}</td>
                             <td class="d-flex">
                               <a href="{{ url('category/'.$item->id.'/edit') }}" class ="btn btn-primary btn-sm me-2">Edit</a> 
                               <form action="{{ url('category/'.$item->id) }}" method="post">
@@ -331,6 +349,7 @@
                             
                           </tr>
                           @endforeach
+                          @endif
                         </tbody>
                       </table>
                     </div>

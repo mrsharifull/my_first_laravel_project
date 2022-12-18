@@ -176,8 +176,9 @@
             <div class="nav-outer">
               <ul class="nav navbar-nav">
                 <li class="active dropdown yamm-fw"> <a href="{{ asset('home.html')}}" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a> </li>
-                @foreach($datas as $cat)
-                <li class="dropdown yamm mega-menu"> <a href="{{ asset('home.html')}}" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">{{ $cat->category_name }}</a>
+                @foreach($data2 as $catSubCat)
+                @php $cat = $catSubCat->first(); @endphp
+                <li class="dropdown yamm mega-menu"> <a href="{{ asset('home.html')}}" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">{{ $cat->catSubCat->category_name }}</a>
                   <ul class="dropdown-menu container">
                     <li>
                       <div class="yamm-content ">
@@ -185,59 +186,12 @@
                           <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
                             <h2 class="title">Men</h2>
                             <ul class="links">
-                              <li><a href="{{ asset('#')}}">Dresses</a></li>
-                              <li><a href="{{ asset('#')}}">Shoes </a></li>
-                              <li><a href="{{ asset('#')}}">Jackets</a></li>
-                              <li><a href="{{ asset('#')}}">Sunglasses</a></li>
-                              <li><a href="{{ asset('#')}}">Sport Wear</a></li>
-                              <li><a href="{{ asset('#')}}">Blazers</a></li>
-                              <li><a href="{{ asset('#')}}">Shirts</a></li>
+                              @foreach($catSubCat as $subCat)
+                              <li><a href="{{ asset('#')}}">{{ $subCat->sub_category_name }}</a></li>
+                              @endforeach
                             </ul>
                           </div>
                           <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                            <h2 class="title">Women</h2>
-                            <ul class="links">
-                              <li><a href="{{ asset('#')}}">Handbags</a></li>
-                              <li><a href="{{ asset('#')}}">Jwellery</a></li>
-                              <li><a href="{{ asset('#')}}">Swimwear </a></li>
-                              <li><a href="{{ asset('#')}}">Tops</a></li>
-                              <li><a href="{{ asset('#')}}">Flats</a></li>
-                              <li><a href="{{ asset('#')}}">Shoes</a></li>
-                              <li><a href="{{ asset('#')}}">Winter Wear</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                            <h2 class="title">Boys</h2>
-                            <ul class="links">
-                              <li><a href="{{ asset('#')}}">Toys & Games</a></li>
-                              <li><a href="{{ asset('#')}}">Jeans</a></li>
-                              <li><a href="{{ asset('#')}}">Shirts</a></li>
-                              <li><a href="{{ asset('#')}}">Shoes</a></li>
-                              <li><a href="{{ asset('#')}}">School Bags</a></li>
-                              <li><a href="{{ asset('#')}}">Lunch Box</a></li>
-                              <li><a href="{{ asset('#')}}">Footwear</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                            <h2 class="title">Girls</h2>
-                            <ul class="links">
-                              <li><a href="{{ asset('#')}}">Sandals </a></li>
-                              <li><a href="{{ asset('#')}}">Shorts</a></li>
-                              <li><a href="{{ asset('#')}}">Dresses</a></li>
-                              <li><a href="{{ asset('#')}}">Jwellery</a></li>
-                              <li><a href="{{ asset('#')}}">Bags</a></li>
-                              <li><a href="{{ asset('#')}}">Night Dress</a></li>
-                              <li><a href="{{ asset('#')}}">Swim Wear</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
                           <div class="col-xs-12 col-sm-6 col-md-4 col-menu banner-image"> <img class="img-responsive" src="{{ asset('assets/images/banners/top-menu-banner.jpg')}}" alt=""> </div>
                           <!-- /.yamm-content --> 
                         </div>
@@ -246,89 +200,6 @@
                   </ul>
                 </li>
                 @endforeach
-                {{-- <li class="dropdown mega-menu"> 
-                <a href="{{ asset('category.html')}}"  data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Electronics <span class="menu-label hot-menu hidden-xs">hot</span> </a>
-                  <ul class="dropdown-menu container">
-                    <li>
-                      <div class="yamm-content">
-                        <div class="row">
-                          <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                            <h2 class="title">Laptops</h2>
-                            <ul class="links">
-                              <li><a href="{{ asset('#')}}">Gaming</a></li>
-                              <li><a href="{{ asset('#')}}">Laptop Skins</a></li>
-                              <li><a href="{{ asset('#')}}">Apple</a></li>
-                              <li><a href="{{ asset('#')}}">Dell</a></li>
-                              <li><a href="{{ asset('#')}}">Lenovo</a></li>
-                              <li><a href="{{ asset('#')}}">Microsoft</a></li>
-                              <li><a href="{{ asset('#')}}">Asus</a></li>
-                              <li><a href="{{ asset('#')}}">Adapters</a></li>
-                              <li><a href="{{ asset('#')}}">Batteries</a></li>
-                              <li><a href="{{ asset('#')}}">Cooling Pads</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                            <h2 class="title">Desktops</h2>
-                            <ul class="links">
-                              <li><a href="{{ asset('#')}}">Routers & Modems</a></li>
-                              <li><a href="{{ asset('#')}}">CPUs, Processors</a></li>
-                              <li><a href="{{ asset('#')}}">PC Gaming Store</a></li>
-                              <li><a href="{{ asset('#')}}">Graphics Cards</a></li>
-                              <li><a href="{{ asset('#')}}">Components</a></li>
-                              <li><a href="{{ asset('#')}}">Webcam</a></li>
-                              <li><a href="{{ asset('#')}}">Memory (RAM)</a></li>
-                              <li><a href="{{ asset('#')}}">Motherboards</a></li>
-                              <li><a href="{{ asset('#')}}">Keyboards</a></li>
-                              <li><a href="{{ asset('#')}}">Headphones</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                            <h2 class="title">Cameras</h2>
-                            <ul class="links">
-                              <li><a href="{{ asset('#')}}">Accessories</a></li>
-                              <li><a href="{{ asset('#')}}">Binoculars</a></li>
-                              <li><a href="{{ asset('#')}}">Telescopes</a></li>
-                              <li><a href="{{ asset('#')}}">Camcorders</a></li>
-                              <li><a href="{{ asset('#')}}">Digital</a></li>
-                              <li><a href="{{ asset('#')}}">Film Cameras</a></li>
-                              <li><a href="{{ asset('#')}}">Flashes</a></li>
-                              <li><a href="{{ asset('#')}}">Lenses</a></li>
-                              <li><a href="{{ asset('#')}}">Surveillance</a></li>
-                              <li><a href="{{ asset('#')}}">Tripods</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                            <h2 class="title">Mobile Phones</h2>
-                            <ul class="links">
-                              <li><a href="{{ asset('#')}}">Apple</a></li>
-                              <li><a href="{{ asset('#')}}">Samsung</a></li>
-                              <li><a href="{{ asset('#')}}">Lenovo</a></li>
-                              <li><a href="{{ asset('#')}}">Motorola</a></li>
-                              <li><a href="{{ asset('#')}}">LeEco</a></li>
-                              <li><a href="{{ asset('#')}}">Asus</a></li>
-                              <li><a href="{{ asset('#')}}">Acer</a></li>
-                              <li><a href="{{ asset('#')}}">Accessories</a></li>
-                              <li><a href="{{ asset('#')}}">Headphones</a></li>
-                              <li><a href="{{ asset('#')}}">Memory Cards</a></li>
-                            </ul>
-                          </div>
-                          <div class="col-xs-12 col-sm-12 col-md-4 col-menu custom-banner"> <a href="{{ asset('#')}}"><img alt="" src="{{ asset('assets/images/banners/banner-side.png')}}"></a> </div>
-                        </div>
-                        <!-- /.row --> 
-                      </div>
-                      <!-- /.yamm-content --> </li>
-                  </ul>
-                </li>
-                <li class="dropdown hidden-sm"> <a href="{{ asset('category.html')}}">Health & Beauty <span class="menu-label new-menu hidden-xs">new</span> </a> </li>
-                <li class="dropdown hidden-sm"> <a href="{{ asset('category.html')}}">Watches</a> </li>
-                <li class="dropdown"> <a href="{{ asset('contact.html')}}">Jewellery</a> </li>
-                <li class="dropdown"> <a href="{{ asset('contact.html')}}">Shoes</a> </li>
-                <li class="dropdown"> <a href="{{ asset('contact.html')}}">Kids & Girls</a> </li> --}}
                 <li class="dropdown"> <a href="{{ asset('#')}}" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Pages</a>
                   <ul class="dropdown-menu pages">
                     <li>
@@ -392,60 +263,17 @@
           <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories</div>
           <nav class="yamm megamenu-horizontal">
             <ul class="nav">
-              @foreach($datas as $cat)
-              <li class="dropdown menu-item"> <a href="{{ asset('#')}}" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-shopping-bag" aria-hidden="true"></i>{{ $cat->category_name }}</a>
+              @foreach($data2 as $catSubCat)
+              @php $cat = $catSubCat->first(); @endphp
+              <li class="dropdown menu-item"> <a href="{{ asset('#')}}" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-shopping-bag" aria-hidden="true"></i>{{ $cat->catSubCat->category_name }}</a>
                 <ul class="dropdown-menu mega-menu">
                   <li class="yamm-content">
                     <div class="row">
                       <div class="col-sm-12 col-md-3">
                         <ul class="links list-unstyled">
-                          <li><a href="{{ asset('#')}}">Dresses</a></li>
-                          <li><a href="{{ asset('#')}}">Shoes </a></li>
-                          <li><a href="{{ asset('#')}}">Jackets</a></li>
-                          <li><a href="{{ asset('#')}}">Sunglasses</a></li>
-                          <li><a href="{{ asset('#')}}">Sport Wear</a></li>
-                          <li><a href="{{ asset('#')}}">Blazers</a></li>
-                          <li><a href="{{ asset('#')}}">Shirts</a></li>
-                          <li><a href="{{ asset('#')}}">Shorts</a></li>
-                        </ul>
-                      </div>
-                      <!-- /.col -->
-                      <div class="col-sm-12 col-md-3">
-                        <ul class="links list-unstyled">
-                          <li><a href="{{ asset('#')}}">Handbags</a></li>
-                          <li><a href="{{ asset('#')}}">Jwellery</a></li>
-                          <li><a href="{{ asset('#')}}">Swimwear </a></li>
-                          <li><a href="{{ asset('#')}}">Tops</a></li>
-                          <li><a href="{{ asset('#')}}">Flats</a></li>
-                          <li><a href="{{ asset('#')}}">Shoes</a></li>
-                          <li><a href="{{ asset('#')}}">Winter Wear</a></li>
-                          <li><a href="{{ asset('#')}}">Night Suits</a></li>
-                        </ul>
-                      </div>
-                      <!-- /.col -->
-                      <div class="col-sm-12 col-md-3">
-                        <ul class="links list-unstyled">
-                          <li><a href="{{ asset('#')}}">Toys &amp; Games</a></li>
-                          <li><a href="{{ asset('#')}}">Jeans</a></li>
-                          <li><a href="{{ asset('#')}}">Shirts</a></li>
-                          <li><a href="{{ asset('#')}}">Shoes</a></li>
-                          <li><a href="{{ asset('#')}}">School Bags</a></li>
-                          <li><a href="{{ asset('#')}}">Lunch Box</a></li>
-                          <li><a href="{{ asset('#')}}">Footwear</a></li>
-                          <li><a href="{{ asset('#')}}">Wipes</a></li>
-                        </ul>
-                      </div>
-                      <!-- /.col -->
-                      <div class="col-sm-12 col-md-3">
-                        <ul class="links list-unstyled">
-                          <li><a href="{{ asset('#')}}">Sandals </a></li>
-                          <li><a href="{{ asset('#')}}">Shorts</a></li>
-                          <li><a href="{{ asset('#')}}">Dresses</a></li>
-                          <li><a href="{{ asset('#')}}">Jwellery</a></li>
-                          <li><a href="{{ asset('#')}}">Bags</a></li>
-                          <li><a href="{{ asset('#')}}">Night Dress</a></li>
-                          <li><a href="{{ asset('#')}}">Swim Wear</a></li>
-                          <li><a href="{{ asset('#')}}">Toys</a></li>
+                          @foreach($catSubCat as $subCat)
+                          <li><a href="{{ asset('#')}}">{{ $subCat->sub_category_name }}</a></li>
+                          @endforeach
                         </ul>
                       </div>
                       <!-- /.col --> 
@@ -456,6 +284,14 @@
                 </ul>
                 <!-- /.dropdown-menu --> 
               </li>
+              {{-- @foreach($data1 =>$cats)
+              @if(($cats->category_name)->fbid==($cat->catSubCat->category_name))
+                @continue
+              @else
+                <li class="dropdown menu-item"> <a href="{{ asset('#')}}" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-shopping-bag" aria-hidden="true"></i>{{ $cats->category_name }}</a>
+                </li>
+              @endif
+              @endforeach --}}
               @endforeach
               <!-- /.menu-item -->
               

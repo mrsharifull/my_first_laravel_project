@@ -9,4 +9,8 @@ class SubCatModel extends Model
 {
     use HasFactory;
     protected $table = 'subcategories';
+    function catSubCat()
+    {
+        return $this->belongsTo(CatModel::class, 'category_id');
+    }
 }
